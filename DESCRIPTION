@@ -1,0 +1,11 @@
+Package: curveRep
+Type: Package
+Title: Visualizing Data Through Curvilinear Representations of Matrices
+Version: 1.1
+Date: 2017-08-23
+Author: Daniel K. Sewell
+Maintainer: Daniel K. Sewell <daniel-sewell@uiowa.edu>
+Description: This package visualizes any arbitrary matrix by first mapping the matrix to a set of functions. These functions can exactly represent the matrix, distances between objects, or the correlation structure in the data.
+License: GPL (>= 2)
+Depends: R (>= 3.2.3), splines, mclust, rARPACK, RColorBrewer, Matrix
+LazyData: true
