@@ -19,8 +19,9 @@ function(dat,Y.Obs=NULL,Y.Vars=NULL,
                   metric=TRUE,
                   ylimOverride=c(1,1)){
   
-  if(!class(dat)%in%c('matrix','dgeMatrix','dgCMatrix',
-                      'dgRMatrix','dsyMatrix')) dat=as.matrix(dat)
+  if(length(intersect(class(dat),c('matrix','dgeMatrix','dgCMatrix',
+                      'dgRMatrix','dsyMatrix'))) == 0) dat=as.matrix(dat)
+  
   
   fun1 = function(x,vec){
     if(NROW(vec)%%2==0){
@@ -253,4 +254,7 @@ function(dat,Y.Obs=NULL,Y.Vars=NULL,
   }
   
   par(mfrow=c(1,1),mar=c(5, 4, 4, 2) + 0.1)
+  
+  return(invisible(list(observation_clusters = Y.Obs,
+                        variable_clusters= Y.Vars)))
 }

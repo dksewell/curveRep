@@ -15,8 +15,8 @@ curveDissim <-
            ylimOverride=c(1,1),
            xlimOverride=c(1,1)){
     
-    if(!class(dat)%in%c('matrix','dgeMatrix','dgCMatrix',
-                        'dgRMatrix','dsyMatrix')) dat=as.matrix(dat)
+    if(length(intersect(class(dat),c('matrix','dgeMatrix','dgCMatrix',
+                                     'dgRMatrix','dsyMatrix'))) == 0) dat=as.matrix(dat)
     
     dat.svd = svds(dat,k=max(nComponents))
     UU = dat.svd$u%*%diag(dat.svd$d)

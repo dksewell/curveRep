@@ -15,8 +15,8 @@ function(dat,X,contr,
   if(is.data.frame(contr)) contr = model.matrix(~contr)
   if(!is.null(contr))if(is.null(dim(contr))) contr = matrix(contr,nrow=1)
   
-  if(!class(dat)%in%c('matrix','dgeMatrix','dgCMatrix',
-                      'dgRMatrix','dsyMatrix')) dat=as.matrix(dat)
+  if(length(intersect(class(dat),c('matrix','dgeMatrix','dgCMatrix',
+                                   'dgRMatrix','dsyMatrix'))) == 0) dat=as.matrix(dat)
   
   fun1 = function(x,vec){
     if(NROW(vec)%%2==0){
